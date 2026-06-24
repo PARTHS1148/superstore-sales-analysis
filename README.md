@@ -78,6 +78,7 @@ Superstore-Sales-Analysis/
 ## Dashboard Preview
 
 ![Dashboard](images/Page-1.png)
+
 ![Dashboard](images/Page-2.png)
 
 ## Skills Demonstrated
