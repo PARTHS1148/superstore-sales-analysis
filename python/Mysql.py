@@ -1,7 +1,17 @@
 import mysql.connector
 import pandas as pd
 from sqlalchemy import create_engine
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+connection = mysql.connector.connect(
+    host=os.getenv("MYSQL_HOST"),
+    user=os.getenv("MYSQL_USER"),
+    password=os.getenv("MYSQL_PASSWORD"),
+    database=os.getenv("MYSQL_DATABASE")
+)
 df = pd.read_csv(r"C:\Users\parth\Desktop\Data_analyst\Project 2\DataSet\Superstore.csv")
 print(df.shape)
 
