@@ -40,16 +40,3 @@ df["Ship Date"] = pd.to_datetime(df["Ship Date"], format="%d/%m/%Y", errors="coe
 # print(df["Ship Date"].dtype)
 
 df.to_csv(r"C:\Users\parth\Desktop\Data_analyst\Project 2\DataSet\Superstore.csv")
-
-
-
-conn = mysql.connector.connect(
-    host = "localhost",
-    user = "parth",
-    password = "PARTHS1148",
-    database = "SuperMarket"
-
-)
-print("Connected to MySQL successfully!")
-
-conn.close()
