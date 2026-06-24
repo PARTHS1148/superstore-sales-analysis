@@ -2,7 +2,7 @@ import pandas as pd
 import mysql.connector
 
 # pd.set_option("display.max_columns", None)
-df = pd.read_csv("Project 2/dataSet/train.csv")
+df = pd.read_csv("../data/train.csv")
 # print(df)
 
 """ Understanding the data """
@@ -39,4 +39,4 @@ df["Ship Date"] = pd.to_datetime(df["Ship Date"], format="%d/%m/%Y", errors="coe
 # print(df["Ship Date"].isna().sum())
 # print(df["Ship Date"].dtype)
 
-df.to_csv(r"C:\Users\parth\Desktop\Data_analyst\Project 2\DataSet\Superstore.csv")
+df.to_csv("../data/Superstore.csv", index=False)
