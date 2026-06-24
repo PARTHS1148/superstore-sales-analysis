@@ -12,11 +12,11 @@ connection = mysql.connector.connect(
     password=os.getenv("MYSQL_PASSWORD"),
     database=os.getenv("MYSQL_DATABASE")
 )
-df = pd.read_csv(r"C:\Users\parth\Desktop\Data_analyst\Project 2\DataSet\Superstore.csv")
+df = pd.read_csv("../data/Superstore.csv")
 print(df.shape)
 
 engine = create_engine(
-    "mysql+mysqlconnector://parth:PARTHS1148@localhost/SuperMarket"
+    f"mysql+mysqlconnector://{os.getenv('MYSQL_USER')}:{os.getenv('MYSQL_PASSWORD')}@{os.getenv('MYSQL_HOST')}/{os.getenv('MYSQL_DATABASE')}"
 )
 
 df.to_sql(
