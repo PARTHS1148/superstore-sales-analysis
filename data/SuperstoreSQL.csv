@@ -1,0 +1,97 @@
+Select * from superstore;
+Select count(*) from superstore;
+
+DESCRIBE superstore;
+
+ALTER TABLE superstore
+MODIFY COLUMN `Order Date` DATE,
+modify column `Ship Date` Date,
+modify column `Postal Code` int;
+
+create view segment_sales as
+Select Segment, Round(sum(Sales),1)
+As Total_Sales
+from superstore
+group by Segment
+Order by Total_Sales desc;                  
+/* Here We find out the that Consumer, Corporate and Home Office respectively are our Customers respecively (Descending) */
+
+create view region_sales as
+Select Region, round(sum(Sales),1)
+As Total_Sales
+from superstore
+group by Region
+order by Total_Sales desc;
+/* Here we find out the Total sales by region */
+
+create view sales_year as 
+Select year(`Order Date`) As Total_Year, round(sum(Sales),1)
+As Total_Sales
+from superstore
+group by Total_Year
+order by Total_Year Asc;
+/* Here we find out sales per year */
+
+create view month_sales_number as
+select monthname(`Order Date`) As Total_Month,  round(sum(Sales),1) As Total_Sales, month(`Order Date`)
+As Month
+from superstore
+group by Total_Month, month(`Order Date`)
+order by month(`Order Date`);
+/* Here we find out the sales per month */
+
+create view ship_sales as
+select `Ship Mode`, round(sum(Sales),1)
+As Total_Sales from superstore
+group by `Ship Mode`
+order by Total_Sales desc;
+/* Here we find out the Sales by Ship Mode */
+
+create view category_sales as
+Select Category, round(sum(Sales),1)
+As Total_Sales from superstore
+group by Category
+order by Total_Sales desc;
+/* Here we find out the Sales by Category */
+
+create view sub_sales as
+Select `Sub-Category` As Sub, round(sum(Sales),1)
+As Total_Sales from superstore
+group by Sub
+order by Total_Sales desc;
+/* Here we find out sales by sub-category */
+
+create view Product_sales as
+Select `Product Name`, round(sum(Sales))
+As Total_Sales from superstore
+group by `Product Name`
+order by Total_Sales desc;
+/* Here we find out sales by Product Name */
+
+create view city_sales as
+select City, round(sum(Sales))
+As Total_Sales from superstore
+group by City
+order by Total_Sales desc;
+/* Here we find out sales by City */
+
+create view state_sales as
+select State, round(sum(Sales))
+As Total_Sales from superstore
+group by State
+order by Total_Sales desc;
+/* Here we find sales by State */
+
+create view day_sales as
+select dayname(`Order Date`) As Day, round(Sum(Sales))
+As Total_Sales from superstore
+group by Day, dayofweek(`Order Date`)
+Order by dayofweek(`Order Date`);
+/* Here we find out sales by Day */
+
+create view segment_year_sales as
+select Segment, year(`Order Date`) As Year, round(Sum(Sales)) As Total_Sales
+from superstore
+group by Segment, Year
+order by Year;
+
