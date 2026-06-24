@@ -77,9 +77,8 @@ Superstore-Sales-Analysis/
 
 ## Dashboard Preview
 
-Add dashboard screenshots inside the `images` folder and display them here.
-
-![Dashboard](images/dashboard_overview.png)
+![Dashboard](images/Page-1.png)
+![Dashboard](images/Page-2.png)
 
 ## Skills Demonstrated
 
